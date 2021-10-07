@@ -6,14 +6,43 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Employee Login</title>
+<title>Login</title>
 </head>
 <body>
 	<%
 		String userType = request.getParameter("userType");
 		String userName = request.getParameter("userName");
 		String userPassword = request.getParameter("password");
-		System.out.println(userType + " " + userName + " " + userPassword);
+		
+		Employee e1 = new Employee();
+		e1.setDesig(userType);
+		e1.setEmail(userName);
+		e1.setPassword(userPassword);
+		
+		boolean status = EmployeeDAO.loginEmployee(e1);
+
+		if(status){
+			if(userType.equals("supplier")){
+				response.sendRedirect("Supplier.html?userName=" + userName);
+			}
+			
+			if(userType.equals("emp")){
+				response.sendRedirect("employee.html?userName=" + userName);
+			}
+			
+			if(userType.equals("manager")){
+				response.sendRedirect("manager.html?userName=" + userName);
+			}
+			
+			if(userType.equals("admin")){
+				response.sendRedirect("admin.html?userName=" + userName);
+			}
+		}
+		else{
+			String errMsg = "Invalid User Name or Password";
+			response.sendRedirect("index.html?var=" + errMsg);
+		}
+		
 	%>
 </body>
 </html>
