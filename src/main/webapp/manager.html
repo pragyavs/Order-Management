@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Manager Dashboard</title>
+
+<style>
+	
+	body{
+		margin: 0;
+		padding: 0;
+		background-image: url('images/manager.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		text-align: center;
+	}
+	
+	#logOut{
+		float: right;
+		margin-right: 10px;
+		margin-top: 10px;
+		padding: 10px 20px;
+		background-color: #000;
+		border: none;
+		color: white;
+		border-radius: 5px;
+	}
+	
+	#logOut:hover{
+		cursor: pointer;
+		background-color: #434343;
+	}
+	
+	h1{
+		font-weight: bold;
+		color: black;
+		text-shadow: 2px 2px 4px #000000;
+		font-size: 80px;
+		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	}
+	
+	.dashboardButton{
+		border: none;
+		padding: 15px 25px;
+		border-radius: 5px;
+		background-color: #04AA6D;
+		color: #fff;
+	}
+	
+	.dashboardButton:hover{
+		background-color: #1DB27B;
+		cursor: pointer;
+	}
+	
+	#approved{
+		display: none;
+	}
+	
+	.managerForms{
+		display: none;
+		position: fixed;
+		z-index: 1;
+		left: 50%;
+		top: 50%;
+		width: 30%;
+		height: 80%;
+		overflow: auto;
+		background-color: #474e5d;
+		transform: translate(-50%, -50%);
+		border-radius: 5px;
+		box-shadow: 0px 0px 50px skyblue;
+	}
+	
+	#close{
+		position: absolute;
+		right: 10px;
+		font-size: 40px;
+		font-weight: bold;
+		color: #f1f1f1;
+	}
+	
+	#close:hover{
+		cursor: pointer;
+	}
+	
+</style>
+
+<script>
+	function displayApproved(){
+		document.getElementById("approved").style.display="block";
+	}
+	
+	function displayOrderForm(){
+		document.getElementById("order").style.display="block";
+	}
+	
+	function displayPending(){
+		document.getElementById("pending").style.display="block";
+	}
+	
+	function displayApproved(){
+		document.getElementById("approved").style.display="block";
+	}
+</script>
+
+</head>
+<body>
+	<button id = "logOut" onclick = "logOut()">Log Out</button>
+	<br><br>
+	<h1>Manager</h1>
+	<button class = "dashboardButton" onclick = "displayApproved()">Approved</button>
+	<button class = "dashboardButton" onclick = "displayOrderForm()">Place Order</button>
+	<button class = "dashboardButton" onclick = "displayPending()">Pending</button>
+	
+	<div id = "approved" class = "managerForms">
+		<span id = "close" onclick="document.getElementById('approved').style.display='none'">&times;</span>
+		<br><br><br><br>
+		<form action = "">
+			<select>
+				<option>prod1</option>
+				<option>prod2</option>
+				<option>prod3</option>
+				<option>prod4</option>
+				<option>prod5</option>
+			</select>
+			<br><br>
+			<input type = "submit" name = "submit" id = "submit" value = "Place Order">
+		</form>
+	</div>
+	
+	<div id = "order" class = "managerForms">
+		<span id = "close" onclick="document.getElementById('order').style.display='none'">&times;</span>
+		<br><br><br><br>
+		<form class = "managerOrderForm" action = "supplier.jsp" method = "post">
+			<select>
+				<option>prod1</option>
+				<option>prod2</option>
+				<option>prod3</option>
+				<option>prod4</option>
+				<option>prod5</option>
+			</select>
+			<br><br>
+			<input type = "submit" name = "submit" id = "submit" value = "Place Order">
+		</form>
+	</div>
+	
+	<div id = "pending" class = "managerForms">
+		<span id = "close" onclick="document.getElementById('pending').style.display='none'">&times;</span>
+		<br><br><br><br>
+		<form class = "managerOrderForm" action = "supplier.jsp" method = "post">
+			<select>
+				<option>prod1</option>
+				<option>prod2</option>
+				<option>prod3</option>
+				<option>prod4</option>
+				<option>prod5</option>
+			</select>
+			<br><br>
+			<input type = "submit" name = "submit" id = "submit" value = "Place Order">
+		</form>
+	</div>
+</body>
+</html>
