@@ -13,23 +13,27 @@
 	<table border="1" width="90%">
 		<tr bgcolor="green">
 			<th> OrderId</th>
-			<th>Emp_id</th>
-			<th>Manager_id</th>
-			<th>Comment</th>
+			<th>Order_date</th>
+			<th>Comments</th>
 			<th>Product_id</th>
+			<th>Supplier_id</th>
+			<th>Status</th>
+			<th>Next_State</th>
 			<th>Accept</th>
 			<th>Reject</th>
 		</tr>
 
 		<c:forEach items="${elist}" var="u">
 			<tr bgcolor="yellow">
-				<td>${u.getOrderId()}</td>
-				<td>${u.getEmp_id()}</td>
-				<td>${u.getMgr_id()}</td>
-				<td>${u.getComment()}</td>
-				<td>${u.getP_id()}</td>
-				<td><a href="accept.jsp?id=${u.getOrderId()}">Accept</a></td>
-				<td><a href="reject.jsp?id=${u.getOrderId()}">Reject</a></td>
+				<td>${u.getOrder_id()}</td>
+				<td>${u.getOrder_date()}</td>
+				<td>${u.getComments()}</td>
+				<td>${u.getProd_id()}</td>
+				<td>${u.getSupplier_id()}</td>
+				<td>${u.getStatus()}</td>
+				<td>${u.getNext_state() }</td>
+				<td><a href="accept.jsp?Order_id=${u.getOrder_id()}">Accept</a></td>
+				<td><a href="reject.jsp?Order_id=${u.getOrder_id()}">Reject</a></td>
 			</tr>
 		</c:forEach>
 	</table>
