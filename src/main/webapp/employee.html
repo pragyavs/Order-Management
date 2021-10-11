@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Order Placing</title>
+    <style>
+        body {
+            background-color: aqua;
+
+        }
+
+       
+
+        h1 {
+            text-align: center;
+        }
+
+        A {
+
+            font-size: 1.3rem;
+            line-height: 2.0;
+            background-color: yellowgreen;
+            
+            
+           
+        }
+
+       
+        nav{
+           
+            text-align: center;
+            padding-top: 13px;
+            border: seagreen;
+            border-radius: 3px; 
+            
+         
+        
+            
+        }
+        
+        
+    </style>
+    
+    <script>
+	
+	function myfunction(){
+		var url_string = window.location.href;
+		var url = new URL(url_string);
+		var e = url.searchParams.get("Id");
+		document.getElementById('placeOrder').href = 'ProductServlet?Id=' + e;
+		document.getElementById('showStatus').href = 'ApprovedServlet?emp_id=' + e;
+	}
+	
+	</script>
+</head>
+
+<body onload = myfunction()>
+	
+    <header>
+        <h1>
+            Employee
+        </h1>
+    </header>
+    <nav>
+
+
+	
+      <button>  <span> <a id = "placeOrder" href="">PLACE ORDER</a> </span> </button>
+      <br>
+      <br>
+      <br>
+       <button>  <span> <a id = "showStatus" href=""> ORDER STATUS</a> </span> </button>
+      
+      
+
+
+
+
+
+
+    </nav>
+
+
+</body>
+
+</html>

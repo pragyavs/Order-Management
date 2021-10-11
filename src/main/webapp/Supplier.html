@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supplier</title>
+<style>
+body {
+	background-image: url("images/supplier.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+h1 {
+	font-weight: bold;
+	color: black;
+	text-shadow: 2px 2px 4px #000000;
+	font-size: 80px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+}
+
+a:link, a:visited {
+    background-color: #04AA6D;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+ 
+a:hover, a:active {
+    background-color: green;
+    color: white;
+}
+
+#logout{
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	background-color: #ff6666;
+	color: white;
+}
+
+#logout:hover {
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+	
+	<button id = "logout" onclick = "window.location.href = 'index.html'">Log Out</button>
+	<center>
+		<div >
+			<h1>Supplier</h1>
+			<a href="ViewOrderServlet">View Orders</a> <br>
+			<br>
+			<a href="addProduct.jsp"> Add Product</a> <br>
+		</div>	
+	</center>
+			
+</body>
+</html>
