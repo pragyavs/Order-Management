@@ -25,7 +25,7 @@
 		<table>
 			<tr>
 				<td>Order ID:</td>
-				<td><input type="text" name="Order_id" value="<%=u.getOrder_id()%>" /></td>
+				<td><input type="text" name="Order_id" value="<%=u.getOrder_id()%>" readonly/></td>
 			</tr>
 			<tr>
 				<td>Comments:</td>
@@ -34,11 +34,11 @@
 			</tr>
 			<tr>
 				<td>Status:</td>
-				<td><input type="text" name="status" value="<%=u.getStatus()%>" /></td>
+				<td><input type="text" name="status" value="Processing" readonly /></td>
 			</tr>
 			<tr>
 				<td>Next State:</td>
-				<td><input type="text" name="next_state" value="<%=u.getNext_state()%>" /> </td>
+				<td><input type="text" name="next_state" value="qm" readonly/> </td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Accept Order" /></td>

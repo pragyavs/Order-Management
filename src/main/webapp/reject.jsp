@@ -25,24 +25,23 @@
 		<table>
 			<tr>
 				<td>Order ID:</td>
-				<td><input type="text" name="Order_id" value="<%=u.getOrder_id()%>" /></td>
+				<td><input type="text" name="Order_id" value="<%=u.getOrder_id()%>" readonly/></td>
 			</tr>
 			<tr>
 				<td>Comments:</td>
-				<td><input type="text" name="Comments"
-					value="<%=u.getComments()%>" /></td>
+				<td><input type="text" name="Comments" value="<%=u.getComments()%>" /></td>
 			</tr>
 			<tr>
 				<td>Status:</td>
-				<td><input type="text" name="status" value="<%=u.getStatus()%>" /></td>
+				<td><input type="text" name="status" value="rejected" readonly/></td>
 			</tr>
-						<tr>
+			<tr>
 				<td>Rejected By:</td>
-				<td><input type="text" name="rejected_by" value="<%=u.getRejected_by()%>" /></td>
+				<td><input type="text" name="rejected_by" value="supplier" readonly/></td>
 			</tr>
 			<tr>
 				<td>Next State:</td>
-				<td><input type="text" name="next_state" value="<%=u.getNext_state()%>" /> </td>
+				<td><input type="text" name="next_state" value="rejected" readonly/> </td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Reject Order" /></td>

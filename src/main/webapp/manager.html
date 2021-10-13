@@ -9,9 +9,10 @@
 	body{
 		margin: 0;
 		padding: 0;
-		background-image: url('images/manager.jpg');
+		background-image: url('images/greenbg.png');
 		background-repeat: no-repeat;
 		background-size: cover;
+		overflow: hidden;
 		text-align: center;
 	}
 	
@@ -33,8 +34,8 @@
 	
 	h1{
 		font-weight: bold;
-		color: black;
-		text-shadow: 2px 2px 4px #000000;
+		color: white;
+		text-shadow: 2px 2px 4px white;
 		font-size: 80px;
 		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	}
@@ -43,12 +44,28 @@
 		margin-bottom: 0;
 	}
 	
+	.col{
+		float: left;
+		height: 75vh;
+	}
+	
+	#col1{
+		width: 24%;
+		
+	}
+	
+	#col2{
+		width: 74%;
+		height: 250px;
+	}
+	
 	.dashboardButton{
 		border: none;
 		padding: 15px 25px;
 		border-radius: 5px;
 		background-color: #04AA6D;
 		color: #fff;
+		display: block;
 	}
 	
 	.dashboardButton:hover{
@@ -136,6 +153,7 @@
 	function displaySupplierRejected(){
 		document.getElementById('supRejected').style.display = "block";
 	}
+	
 </script>
 
 </head>
@@ -147,37 +165,42 @@
 	<br><br>
 	<h1>Manager</h1>
 	<p id = "message"></p>
-	<button class = "dashboardButton" onclick = "displayApproved()">Approved</button>
-	<button class = "dashboardButton" onclick = "displayOrderForm()">Place Order</button>
-	<button class = "dashboardButton" onclick = "displayPending()">Pending</button>
-	<button class = "dashboardButton" onclick = "displaySupplierRejected()">Rejected by Supplier</button>
 	
-	<div id = "approved" class = "managerForms wideContainer">
-		<span class = "close" onclick="document.getElementById('approved').style.display='none'">&times;</span>
-		<h2>Completed Orders</h1>
+	<div id = "col1" class = "col">
+		<button class = "dashboardButton" onclick = "displayApproved()">Approved</button>
+		<button class = "dashboardButton" onclick = "displayOrderForm()">Place Order</button>
+		<button class = "dashboardButton" onclick = "displayPending()">Pending</button>
+		<button class = "dashboardButton" onclick = "displaySupplierRejected()">Rejected by Supplier</button>
+	</div>
+	
+	<div id = "col2" class = "col">
+		<div id = "approved" class = "managerForms wideContainer">
+			<span class = "close" onclick="document.getElementById('approved').style.display='none'">&times;</span>
+			<h2>Completed Orders</h1>
+			
+			<iframe id = "approvedFrame" class = "managerFrame" src = ""></iframe>
+		</div>
 		
-		<iframe id = "approvedFrame" class = "managerFrame" src = ""></iframe>
-	</div>
-	
-	<div id = "order" class = "managerForms">
-		<span class = "close" onclick="document.getElementById('order').style.display='none'; document.getElementById('frame').action=''">&times;</span>
-		<br><br>
-		<h2>Place New Order</h2>
-		<br><br>
-		<iframe id = "orderFrame" class = "managerFrame" src = ""></iframe>
-	</div>
-	
-	<div id = "pending" class = "managerForms">
-		<span class = "close" onclick="document.getElementById('pending').style.display='none'">&times;</span>
-		<br><br>
-		<h2>Pending for Approval</h2>
-		<iframe id = "pendingFrame" class = "managerFrame" src = "" frameborder = "0"></iframe>
-	</div>
-	
-	<div id = "supRejected" class = "managerForms wideContainer">
-		<span class = "close" onclick="document.getElementById('supRejected').style.display='none'">&times;</span>
-		<h2>Rejected by Supplier</h2>
-		<iframe id = "rejectedForm" class = "managerFrame" src = "" frameborder = "0"></iframe>
+		<div id = "order" class = "managerForms">
+			<span class = "close" onclick="document.getElementById('order').style.display='none'; document.getElementById('frame').action=''">&times;</span>
+			<br><br>
+			<h2>Place New Order</h2>
+			<br><br>
+			<iframe id = "orderFrame" class = "managerFrame" src = ""></iframe>
+		</div>
+		
+		<div id = "pending" class = "managerForms">
+			<span class = "close" onclick="document.getElementById('pending').style.display='none'">&times;</span>
+			<br><br>
+			<h2>Pending for Approval</h2>
+			<iframe id = "pendingFrame" class = "managerFrame" src = "" frameborder = "0"></iframe>
+		</div>
+		
+		<div id = "supRejected" class = "managerForms wideContainer">
+			<span class = "close" onclick="document.getElementById('supRejected').style.display='none'">&times;</span>
+			<h2>Rejected by Supplier</h2>
+			<iframe id = "rejectedForm" class = "managerFrame" src = "" frameborder = "0"></iframe>
+		</div>
 	</div>
 </body>
 </html>

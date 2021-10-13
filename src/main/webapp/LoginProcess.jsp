@@ -44,7 +44,7 @@
 		}
 		else{
 			String errMsg = "Invalid User Name or Password";
-			response.sendRedirect("index.html?var=" + errMsg);
+			response.sendRedirect("loginForm.jsp?var=" + errMsg + "&emp_type=" + userType);
 		}
 		
 	%>

@@ -178,6 +178,7 @@ public class EmployeeDAO {
 		
 		try {
 			Connection con=ConnectionDAO.getConnection();
+			System.out.println("Connection successfull emp_id: " + emp_id);
 			PreparedStatement ps = con.prepareStatement("delete from employees where emp_id=" + emp_id);
 			
 			status = ps.executeUpdate();

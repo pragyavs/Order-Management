@@ -38,6 +38,7 @@ public class SupplierRejectedServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("inside sup rej survlet");
 		int mgr_id = Integer.parseInt(request.getParameter("mgr_id"));
 		System.out.println("manager id in supplierRejectedServlet is:  " + mgr_id);
 		List<Order> olist = OrderDAO.getSupRejectedOrder(mgr_id, "rejected");
