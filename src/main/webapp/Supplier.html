@@ -4,11 +4,65 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Supplier</title>
+ <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 <style>
-body {
+/*body {
 	background-image: url("images/supplier.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+*/
+	body{
+		margin:0%;
+		margin-top: 0%;
+		margin-left: 0%;
+		padding-top:0px;
+		color: white;
+		background-image: url("images/supplier.jpg");
+		background-position:40% 9%;
+		height: 100%;
+		background-size:cover;
+		animation: breath_af 40s linear 1;
+	}
+
+@keyframes breath_af {
+  0%   { background-size: 150% auto; }
+  18% { background-size:100% auto; }
+  80% { background-size: 110% auto; }
+  100% { background-size: 100% auto; }
+}
+@keyframes button_work {
+  0%   { background-size: 220% auto; }
+  50% { background-size:160% auto; }
+  100% { background-size: 100% auto; }
+}
+
+.animate__zoomInDown{
+ animation-delay: 0s;
+ --animate-duration: 4s;
+}
+.animate__zoomIn{
+ animation-delay: 5s;
+ --animate-duration: 3s;
+}
+.animate__bounceIn{
+ animation-delay: 8s;
+ --animate-duration: 5s;
+}
+
+.car_button{
+width: 500px;
+height: 200px;
+}
+
+.bike_button{
+width: 505px;
+height: 200px;
+}
+.bike_button button{
+	margin-left: 200px;
 }
 
 h1 {
@@ -19,46 +73,61 @@ h1 {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
 		'Lucida Sans', Arial, sans-serif;
 }
-
-a:link, a:visited {
-    background-color: #04AA6D;
-    color: black;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
  
-a:hover, a:active {
-    background-color: green;
+
+button{
+	margin-top: 10px;
+	margin-left: 100px;
+	width:200px;
+    height:200px;
+    border-radius: 50%;
+    background: transparent;
     color: white;
+    box-shadow: 10px 10px 10px 10px rgba(255,255,255,0.5);
 }
-
-#logout{
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	background-color: #ff6666;
-	color: white;
+button:hover{
+	background-color: rgba(255,255,255,0.5);
+	color: black;
+	box-shadow: 5px 5px 5px 5px black;
 }
-
-#logout:hover {
-	cursor: pointer;
+b{
+	font-size: 50px;
 }
+.buttons{
+	margin-left: 330px;
+	margin-top: 50px;
+	display: flex;
+	width: 1000px;
+	height: 200px;
+}
+.first-hr{
+	width:600px;
+	margin-left: 530px;
+	border:2px solid white;
+}
+hr{
+	border:3px solid white;
+	}
 </style>
 </head>
 
 <body>
+	<div >
 	
-	<button id = "logout" onclick = "window.location.href = 'index.html'">Log Out</button>
 	<center>
-		<div >
-			<h1>Supplier</h1>
-			<a href="ViewOrderServlet">View Orders</a> <br>
-			<br>
-			<a href="addProduct.jsp"> Add Product</a> <br>
-		</div>	
-	</center>
+		<h1>Supplier</h1>
+			</div>	
+			
+			<div class="buttons ">
+	<div class="car_button">
+		<button onclick="window.location.href='ViewOrderServlet'" class="animate__animated animate__bounceIn"><b>View Orders</b></button>
+	</div>
+	<hr class="animate__bounceInRight">
+	<div class="bike_button">
+		<button onclick="window.location.href='addProduct.jsp'"  class="animate__animated animate__bounceIn"><b>Add Product</b></button>
+	</div>
+</div>
+</center>
 			
 </body>
 </html>
