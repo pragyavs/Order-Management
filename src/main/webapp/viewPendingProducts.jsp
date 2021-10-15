@@ -12,6 +12,7 @@
 	body{
 		padding: 0;
 		margin: 0;
+		text-align: center;
 	}
 	
 	#orders {
@@ -19,26 +20,34 @@
 	  width: 100%;
 	  text-align: center;
   	}
+  	
+  	#orders td{
+  		color: white;
+  	}
 
 	#orders td, #orders th {
-	  border: 1px solid #ddd;
 	  padding: 8px;
 	}
 	
-	#orders tr {background-color: #f2f2f2;}
+	#orders tr {}
 	
-	#orders tr:hover {background-color: #ddd;}
+	#orders tr:hover {background-color: #166d3b;}
 	
 	#orders th {
 	  padding-top: 12px;
 	  padding-bottom: 12px;
-	  background-color: #04AA6D;
 	  color: white;
+	  background-color:black;
+		
 	}
 	
 	th {
       position: sticky;
       top: 0;
+    }
+    
+    a{
+    	color: white;
     }
 	
 </style>
@@ -53,7 +62,7 @@
 	<input type = "hidden" name = "comment" value = "">
 	<input type = "hidden" name = "rejected_by" value = "">
 
-	<p style = "color: red;">${message }.</p>
+	<p style = "color: white;">${message }.</p>
 
 	<table id = "orders">
 		<tr>

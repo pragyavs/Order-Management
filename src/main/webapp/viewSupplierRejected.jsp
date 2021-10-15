@@ -13,6 +13,7 @@ com.quinnox.project.orderSupplies.empcrud.dao.ProductDAO"%>
 	body{
 		padding: 0;
 		margin: 0;
+		text-align: center;
 	}
 	
 	#orders {
@@ -22,34 +23,42 @@ com.quinnox.project.orderSupplies.empcrud.dao.ProductDAO"%>
   	}
 
 	#orders td, #orders th {
-	  border: 1px solid #ddd;
 	  padding: 8px;
 	}
 	
-	#orders tr {background-color: #f2f2f2;}
+	#orders tr {
+		color: white;
+	}
 	
-	#orders tr:hover {background-color: #ddd;}
+	#orders tr:hover {
+		background-color: #166d3b;
+	}
 	
 	#orders th {
 	  padding-top: 12px;
 	  padding-bottom: 12px;
-	  background-color: #04AA6D;
 	  color: white;
+	  background-color:black;
+		
 	}
 	
 	th {
       position: sticky;
       top: 0;
     }
+    
+    a{
+    	color: white;
+    }
 	</style>
 	
 </head>
 <body>
 	
-	<p style = "color: red;"><%=request.getParameter("message") %></p>
+	<p style = "color: white;"><%=request.getParameter("message") %></p>
 	
 	<table id = "orders">
-		<tr bgcolor="green">
+		<tr>
 			<th>Order No</th>
 			<th>Emp Id</th>
 			<th>Product Name</th>
@@ -59,7 +68,7 @@ com.quinnox.project.orderSupplies.empcrud.dao.ProductDAO"%>
 		</tr>
 		
 		<c:forEach items="${olist}" var="u" varStatus = "status">
-			<tr bgcolor="yellow">
+			<tr>
 				<td>${u.getOrder_id()}</td>
 				<td>${u.getEmp_id() }</td>
 				<td>${plist[status.index].getName()}</td>

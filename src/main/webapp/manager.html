@@ -9,7 +9,7 @@
 	body{
 		margin: 0;
 		padding: 0;
-		background-image: url('images/greenbg.png');
+		background-image: url('images/home.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
 		text-align: center;
@@ -87,7 +87,7 @@
 	
 	button:hover{
 		
-		color: #63d471;
+		color: black;
 		background: linear-gradient(-45deg, rgba(0,0,0,1), rgba(255,255,255,0.25));
 		cursor: pointer;
 	}
@@ -95,18 +95,20 @@
 	.managerForms{
 		display: none;
 		position: fixed;
-		z-index: 1;
+		z-index: 2;
 		left: 50%;
 		top: 50%;
 		width: 30%;
 		min-width: 335px;
 		height: 80%;
 		overflow: hidden;
-		background-color: #474e5d;
 		transform: translate(-50%, -50%);
 		border-radius: 5px;
 		backdrop-filter: blur(8px);		
-		
+		text-align: center;
+		border: 1px solid white;
+		background-color: #63d471;
+		background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
 	}
 
 	.wideContainer{
@@ -134,6 +136,17 @@
 	iframe{
 		overflow: hidden;
 	}
+	
+	#frameContainer{
+		display: none;
+		width: 100vw;
+		height: 100vh;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		position: absolute;
+		backdrop-filter: blur(8px);
+	}
 
 </style>
 
@@ -154,14 +167,17 @@
 
 	function displayApproved(){
 		document.getElementById("approved").style.display="block";
+		document.getElementById('frameContainer').style.display = "block";
 	}
 
 	function displayOrderForm(){
 		document.getElementById("order").style.display="block";
+		document.getElementById('frameContainer').style.display = "block";
 	}
 
 	function displayPending(){
 		document.getElementById("pending").style.display="block";
+		document.getElementById('frameContainer').style.display = "block";
 		//var url_string = window.location.href;
 	//	var url = new URL(url_string);
 		//var e = url.searchParams.get("Id");
@@ -172,6 +188,7 @@
 
 	function displaySupplierRejected(){
 		document.getElementById('supRejected').style.display = "block";
+		document.getElementById('frameContainer').style.display = "block";
 	}
 </script>
 
@@ -202,33 +219,36 @@
 			<button class = "dashboardButton" onclick = "displaySupplierRejected()">Rejected by Supplier</button>
 		</div>
 	</div>
-
-	<div id = "approved" class = "managerForms wideContainer">
-		<span class = "close" onclick="document.getElementById('approved').style.display='none'">&times;</span>
-		<h2>Completed Orders</h1>
-
-		<iframe id = "approvedFrame" class = "managerFrame" src = ""></iframe>
+	<div id = "frameContainer">
+		<div id = "approved" class = "managerForms wideContainer">
+			<span class = "close" onclick="document.getElementById('approved').style.display = 'none'; document.getElementById('frameContainer').style.display = 'none'">&times;</span>
+			<br><br>
+			<h2>Audit Trail</h2>
+			<iframe id = "approvedFrame" class = "managerFrame" src = "" frameborder = "0"></iframe>
+		</div>
+	
+		<div id = "order" class = "managerForms">
+			<span class = "close" onclick="document.getElementById('order').style.display='none'; document.getElementById('frameContainer').style.display='none';">&times;</span>
+			<br><br>
+			<h2>Place New Order</h2>
+			<br><br>
+			<iframe id = "orderFrame" class = "managerFrame" src = "" frameborder = "0"></iframe>
+		</div>
+	
+		<div id = "pending" class = "managerForms">
+			<span class = "close" onclick="document.getElementById('pending').style.display='none'; document.getElementById('frameContainer').style.display='none';">&times;</span>
+			<br><br>
+			<h2>Pending for Approval</h2>
+			<iframe id = "pendingFrame" class = "managerFrame" src = "" frameborder = "0"></iframe>
+		</div>
+	
+		<div id = "supRejected" class = "managerForms wideContainer">
+			<span class = "close" onclick="document.getElementById('supRejected').style.display='none'; document.getElementById('frameContainer').style.display='none';">&times;</span>
+			<br><br>
+			<h2>Rejected by Supplier</h2>
+			<iframe id = "rejectedForm" class = "managerFrame" src = "" frameborder = "0"></iframe>
+		</div>
 	</div>
-
-	<div id = "order" class = "managerForms">
-		<span class = "close" onclick="document.getElementById('order').style.display='none'; document.getElementById('frame').action=''">&times;</span>
-		<br><br>
-		<h2>Place New Order</h2>
-		<br><br>
-		<iframe id = "orderFrame" class = "managerFrame" src = ""></iframe>
-	</div>
-
-	<div id = "pending" class = "managerForms">
-		<span class = "close" onclick="document.getElementById('pending').style.display='none'">&times;</span>
-		<br><br>
-		<h2>Pending for Approval</h2>
-		<iframe id = "pendingFrame" class = "managerFrame" src = "" frameborder = "0"></iframe>
-	</div>
-
-	<div id = "supRejected" class = "managerForms wideContainer">
-		<span class = "close" onclick="document.getElementById('supRejected').style.display='none'">&times;</span>
-		<h2>Rejected by Supplier</h2>
-		<iframe id = "rejectedForm" class = "managerFrame" src = "" frameborder = "0"></iframe>
-	</div>
+	
 </body>
 </html> 

@@ -19,11 +19,17 @@
 	}
 	
 	#submit{
-		border: none;
 		padding: 15px 25px;
-		border-radius: 5px;
-		background-color: #047f52;
 		color: #fff;
+		background-color: #000;
+		border: none;
+		color: white;
+		border-radius: 5px;
+		box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 1), -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+	   	background: linear-gradient(135deg, rgba(0,0,0,1), rgba(255,255,255,0.25));
+	   	font-family: "Times New Roman", Times, serif;
+	   	font-size: 15px;
+	    font-weight: bold;
 	}
 	
 	#submit:hover{

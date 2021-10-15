@@ -20,21 +20,26 @@
 	  width: 100%;
 	  text-align: center;
   	}
+  	
+  	#orders td{
+  	}
 
 	#orders td, #orders th {
-	  border: 1px solid #ddd;
 	  padding: 8px;
 	}
 	
-	#orders tr {background-color: #f2f2f2;}
+	#orders tr {
+		color: white;
+	}
 	
-	#orders tr:hover {background-color: #ddd;}
+	#orders tr:hover {background-color: #166d3b;}
 	
 	#orders th {
 	  padding-top: 12px;
 	  padding-bottom: 12px;
-	  background-color: #04AA6D;
 	  color: white;
+	  background-color:black;
+		
 	}
 	
 	th {

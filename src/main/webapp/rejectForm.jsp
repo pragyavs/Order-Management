@@ -8,9 +8,51 @@
 </head>
 
 <style>
-	form{
-		background-color: #90949d;
+	body{
+		padding: 0;
+		margin: 0;
 	}
+	form{
+		padding: 20px;
+		height: 100%;
+	}
+	
+	input, textarea {
+		border: 0;
+		outline: 0;
+		font-family: "Times New Roman", Times, serif;
+		font-size: 16px;
+		border-radius: 320px;
+		padding: 16px;
+		background-color: rgba(0, 0, 0, 0.1);
+		color: white;
+		margin-right: 8px;
+		box-shadow:  inset 2px 2px 5px black, inset -5px -5px 10px #FFF;
+		width: 100%;
+		box-sizing: border-box;
+		transition: all 0.2s ease-in-out;
+		appearance: none;
+		-webkit-appearance: none;
+	}
+
+	label{
+		color: white;
+	}
+	
+	#submit{
+		box-shadow: 2px 2px 5px #FFF, -5px -5px 10px black;
+		width: 150px;
+	}
+	
+	#submit:hover{
+		cursor: pointer;
+		box-shadow: -2px -2px 5px #FFF, 2px 2px 5px black;
+	}
+	
+	div{
+	height: 100px;
+    width: 100px;
+}
 </style>
 
 <body>
@@ -36,12 +78,15 @@
 		<input type = "text" id = "sup_id" name = "sup_id" value = "<%=sup_id %>" readonly>
 		<br><br>
 		<label for = "comment">Comments:</label><br>
-		<textarea id = "comment" name = "comment" rows = "4" cols = "40"></textarea>
+		<textarea style = "border-radius: 30px;" id = "comment" name = "comment" rows = "4" cols = "40"></textarea>
 		<br><br>
 		<label for = "rejected_by">Rejected by:</label><br>
 		<input type = "text" id = "rejected_by" name = "rejected_by" value = "<%=rej_by %>" readonly>
 		<br><br>
-		<input type = "submit" value = "Confirm">
+		<input id = "submit" type = "submit" value = "Confirm">
 	</form>
+	
+	<div></div>
+
 </body>
 </html>
