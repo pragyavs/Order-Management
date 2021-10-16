@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
     import = "com.quinnox.project.orderSupplies.empcrud.model.Employee,
-    com.quinnox.project.orderSupplies.empcrud.dao.EmployeeDAO"%>
+    com.quinnox.project.orderSupplies.empcrud.dao.EmployeeDAO,
+    com.quinnox.project.orderSupplies.empcrud.model.Supplier,
+    com.quinnox.project.orderSupplies.empcrud.dao.SupplierDAO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,17 +19,29 @@
 		String pass = request.getParameter("password");
 		int mgr_id = Integer.parseInt(request.getParameter("mgr_id"));
 		
-		Employee e = new Employee();
+		int status;
+		if(desig.equals("supplier")){
+			Supplier s = new Supplier();
+			
+			s.setName(f_name);
+			s.setEmail(email);
+			s.setPassword(pass);
+			
+			status = SupplierDAO.addSupplier(s);
+		}
 		
-		e.setF_name(f_name);
-		e.setL_name(l_name);
-		e.setDesig(desig);
-		e.setEmail(email);
-		e.setPassword(pass);
-		e.setMgr_id(mgr_id);
-		
-		int status = EmployeeDAO.addUser(e);
-		
+		else{
+			Employee e = new Employee();
+			
+			e.setF_name(f_name);
+			e.setL_name(l_name);
+			e.setDesig(desig);
+			e.setEmail(email);
+			e.setPassword(pass);
+			e.setMgr_id(mgr_id);
+			
+			status = EmployeeDAO.addUser(e);
+		}
 		String message = "";
 		
 		if(status == 1){

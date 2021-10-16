@@ -158,7 +158,7 @@
 		var e = url.searchParams.get("Id");
 		document.getElementById('orderFrame').src = 'ProductServlet?Id=' + e;
 		document.getElementById('pendingFrame').src = 'EmpOrderServlet?Id=' + e + '&nxtState=mgr';
-		document.getElementById('rejectedForm').src = 'SupplierRejectedServlet?mgr_id=' + e;
+		document.getElementById('rejectedForm').src = 'SupplierRejectedServlet?emp_id=' + e;
 		document.getElementById('approvedFrame').src = 'ApprovedServlet?emp_id=' + e + '&emp_type=mgr';
 
 		var msg = url.searchParams.get("message");
@@ -204,7 +204,7 @@
 	
 	<div class = "button-container">
 		<div class = "mgrbtn">
-			<button class = "dashboardButton" onclick = "displayApproved()">Approved</button>
+			<button class = "dashboardButton" onclick = "displayApproved()">Audit Trail</button>
 		</div>
 		
 		<div class = "mgrbtn">

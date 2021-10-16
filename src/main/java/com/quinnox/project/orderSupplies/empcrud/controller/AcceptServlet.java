@@ -47,8 +47,21 @@ public class AcceptServlet extends HttpServlet {
 		//Invoke User Parameterized constructor & initialise values
 		Order u=new Order( order_id, emp_id, mgr_id, prod_id, supplier_id, comments, status, rejctedBy, next_state);
 
-		int i=OrderDAO.acceptOrder(u);
-		response.sendRedirect("ViewOrderServlet");
+		int i = OrderDAO.acceptOrder(u);
+		
+		String message = "";
+		
+		if(i == 1) {
+			message = "Order Accepted";
+		}
+		else {
+			message = "Something went Wrong";
+		}
+		
+		System.out.println("message in acceptservlet: " + message);
+		
+		//request.setAttribute("message", message);
+		response.sendRedirect("ViewOrderServlet?message=" + message + "&Id=" + supplier_id);
 	}
 
 	/**

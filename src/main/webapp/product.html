@@ -4,165 +4,108 @@
 <meta charset="ISO-8859-1">
 <title>Product Details</title>
 
-<style type="text/css">
-body {
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-* {
-	box-sizing: border-box;
-}
-
-/* Full-width input fields */
-input[type=text] {
-	width: 100%;
-	padding: 15px;
-	margin: 5px 0 22px 0;
-	display: inline-block;
-	border: none;
-	background: #f1f1f1;
-}
-
-/* Add a background color when the inputs get focus */
-input[type=text]:focus {
-	background-color: #ddd;
-	outline: none;
-}
-
-input[type=text], select, textarea {
-	width: 100%; /* Full width */
-	padding: 12px; /* Some padding */
-	border: 1px solid #ccc; /* Gray border */
-	border-radius: 4px; /* Rounded borders */
-	box-sizing: border-box;
-	/* Make sure that padding and width stays in place */
-	margin-top: 6px; /* Add a top margin */
-	margin-bottom: 16px; /* Bottom margin */
-	resize: vertical
-		/* Allow the user to vertically resize the textarea (not horizontally) */
-}
-/* Set a style for all buttons */
-button {
-	background-color: #04AA6D;
-	color: black;
-	padding: 14px 20px;
-	margin: 8px 0;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-	opacity: 0.9;
-}
-
-button:hover {
-	/*opacity: 1;*/
-	background-color: green;
-	color: white;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-	padding: 14px 20px;
-	background-color: #f44336;
-}
-
-/* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .addbtn {
-	float: left;
-	width: 50%;
-}
-
-/* Add padding to container elements */
-.container {
-	padding: 16px;
-}
-
-/* The Modal (background) */
-.modal {
-	 /* Stay in place */
-	z-index: 1; /* Sit on top */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: #474e5d;
-	padding-top: 50px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-	background-color: #fefefe;
-	margin: 5% auto 15% auto;
-	/* 5% from the top, 15% from the bottom and centered */
-	border: 1px solid #888;
-	width: 60%; /* Could be more or less, depending on screen size */
-}
-
-/* Style the horizontal ruler */
-hr {
-	border: 1px solid #f1f1f1;
-	margin-bottom: 25px;
-}
-
-/* The Close Button (x) */
-.close {
-	position: absolute;
-	right: 35px;
-	top: 15px;
-	font-size: 40px;
-	font-weight: bold;
-	color: #f1f1f1;
-}
-
-.close:hover, .close:focus {
-	color: #f44336;
-	cursor: pointer;
-}
-
-/* Clear floats */
-.clearfix::after {
-	content: "";
-	clear: both;
-	display: table;
-}
-
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-	.cancelbtn, .addbtn {
-		width: 100%;
+<style>
+	body{
+		padding: 0;
+		margin: 0;
 	}
+	form{
+		padding: 20px;
+		height: 100%;
+	}
+	
+	input, textarea {
+		border: 0;
+		outline: 0;
+		font-family: "Times New Roman", Times, serif;
+		font-size: 16px;
+		border-radius: 320px;
+		padding: 16px;
+		background-color: rgba(0, 0, 0, 0.1);
+		color: white;
+		margin-right: 8px;
+		box-shadow:  inset 2px 2px 5px black, inset -5px -5px 10px #FFF;
+		width: 100%;
+		box-sizing: border-box;
+		transition: all 0.2s ease-in-out;
+		appearance: none;
+		-webkit-appearance: none;
+	}
+	
+	input:focus {
+		box-shadow:  inset 1px 1px 2px black, inset -1px -1px 2px #FFF;
+	}
+	
+	textarea:focus {
+		box-shadow:  inset 1px 1px 2px black, inset -1px -1px 2px #FFF;
+	}
+	
+	#des{
+		border-radius: 20px;
+	}
+
+	label{
+		color: white;
+	}
+	
+	#submit{
+		box-shadow: 2px 2px 5px #FFF, -5px -5px 10px black;
+		width: 150px;
+	}
+	
+	#submit:hover{
+		cursor: pointer;
+		box-shadow: -2px -2px 5px #FFF, 2px 2px 5px black;
+	}
+	
+	div{
+	height: 100px;
+    width: 100px;
 }
 </style>
-</head>
-<body class="modal">
-		<form class="modal-content" action="newProduct.jsp" method="post">
-			<div class="container">
-				<h1>Product Details</h1>
-				<hr>
-				<label for="p_name"><b>Product Name</b></label>
-				<input type="text" placeholder="Product name" name="name" required>
-				
-				<label for="p_id"><b>Product ID</b></label>
-				<input type="text" placeholder="Product" name="id" required>
-				
-				<label for="price"><b>Price</b></label>
-				<input type="text" placeholder="Enter price" name="price" required>
-				
-				<label for="rating"><b>Rating</b></label>
-				<input type="text" placeholder="Product Rating" name="rating" required>
-				
-				<label for="des"><b>Description</b></label>
-				<textarea id="des" name="description" placeholder="Write something.." style="height: 100px"></textarea>
-				
-				<label for="quantity"><b>Quantity</b></label>
-				<input type="text" placeholder="Enter Quantity" name="quantity" required>
-				
-				<div class="clearfix">
-					<button type="submit" class="addbtn">Add Product</button>
-				</div>
-			</div>
-		</form>
 
+<script>
+
+	function myFunction(){
+		var url_string = window.location.href;
+		var url = new URL(url_string);
+		var e = url.searchParams.get("sup_id");
+		var message = url.searchParams.get("message");
+		document.getElementById("sup_id").value = e;
+		document.getElementById("message").innerHTML = message;
+		
+	}
+
+</script>
+
+</head>
+<body onload = myFunction()>
+		<center>
+			<p id = "message" style = "color: white;"></p>
+		</center>
+		<form action="newProduct.jsp" method="post">
+		
+				<input type = "hidden" id = "sup_id" name = "sup_id">
+				
+				<label for="p_name"><b>Product Name</b></label><br><br>
+				<input type="text" placeholder="Product name" name="name" required>
+				<br><br>
+				<label for="price"><b>Price</b></label><br><br>
+				<input type="text" placeholder="Enter price" name="price" required>
+				<br><br>
+				<label for="rating"><b>Rating</b></label><br><br>
+				<input type="text" placeholder="Product Rating" name="rating" required>
+				<br><br>
+				<label for="des"><b>Description</b></label><br><br>
+				<textarea id="des" name="description" placeholder="Write something.." style="height: 100px"></textarea>
+				<br><br>
+				<label for="quantity"><b>Quantity</b></label><br><br>
+				<input type="text" placeholder="Enter Quantity" name="quantity" required>
+				<br><br>
+				<input id = "submit" type="submit" value = "Add Product">
+		</form>
+		
+		<div></div>
 
 </body>
 </html>

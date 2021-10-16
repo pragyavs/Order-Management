@@ -7,13 +7,51 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="icon" href="static/tequed.png" />
+    
+    <script>
+    
+    function userTypeFunction(event) {
+		
+    	if (event.target.value === "emp") {
+    	    document.getElementById("mgr_id").readOnly = false;
+    	    document.getElementById("mgr_id").value = '';
+    	  }
+    	else if (event.target.value === "manager") {
+    	    document.getElementById("mgr_id").value = 0;
+    	    document.getElementById("mgr_id").readOnly = true;
+    	  }
+    	  else if (event.target.value === "admin") {
+    	    document.getElementById("mgr_id").value = 998;
+    	    document.getElementById("mgr_id").readOnly = true;
+    	  }
+    	  else if (event.target.value === "supplier") {
+    	    document.getElementById("mgr_id").value = 997;
+    	    document.getElementById("mgr_id").readOnly = true;
+    	  }
+    	  else if (event.target.value === "qm") {
+    	    document.getElementById("mgr_id").value = 999;
+    	    document.getElementById("mgr_id").readOnly = true;
+    	  }
+
+    	};
+    	
+		function myFunction(){
+			var url_string = window.location.href;
+			var url = new URL(url_string);
+			var e = url.searchParams.get("message");
+			document.getElementById("message").innerHTML = e;
+		}
+    
+    </script>
+    
 </head>
-<body>
+<body onload = "myFunction()">
 <div class="color-gradient">
 <h1 class="animate__animated animate__zoomInDown">Set impossible challenges, then catch up with them</h1>
 <h1 class="second-head1 animate__animated animate__zoomIn">Let's Check out the new updates</h1>
 <h2 class="animate__animated animate__bounceIn">Welcome Admin</h2>
 </div>
+<p id = "message" style = "color: white;"></p>
 <hr class="first-hr animate__shakeY">
 <div class="buttons ">
 	<div class="add_button">
@@ -29,20 +67,22 @@
 		<br><br><br>
 		<form action="addUser.jsp" method="post">
 			
-			<p style = "color: white">Give Manager Id as follows for different Designations:</p>
-			<p style = "color: white">Manager: 0</p>
-			<p style = "color: white">Supplier: 997</p>
-			<p style = "color: white">Admin: 998</p>
-			<p style = "color: white">QM: 999</p>
-		
+			<label for = "userType">Designation:</label>
+			<select name = "desig" id = "userType" class = "formElements" onchange="userTypeFunction(event)" required>
+				<option selected disabled value = "">Select Designation</option>
+				<option value="emp">Employee</option>
+				<option value="manager">Manager</option>
+				<option value="supplier">Supplier</option>
+				<option value="qm">Quality Manager</option>
+				<option value="admin">Admin</option>
+			</select>
+			
+			<br><br>
 			<label for = "f_name">First Name</label>
 			<input type="text" name="f_name" placeholder="First Name" required />
 			<br><br>
 			<label for = "l_name">Last Name</label>
 			<input type = "text" name = "l_name" placeholder = "Last Name">
-			<br><br>
-			<label for = "desig">Designation</label>
-			<input type = "text" name = "desig" placeholder = "Designation" required>
 			<br><br>
 			<label for = "email">Email Id</label>
 			<input type = "email" name = "email" placeholder = "Email Id" required>
@@ -51,7 +91,7 @@
 			<input type = "text" name = "password" placeholder = "Password" required>
 			<br><br>
 			<label for = "mgr_id">Manager Id</label>
-			<input type = "text" name = "mgr_id" placeholder = "Manager Id" required>
+			<input type = "number" id = "mgr_id" name = "mgr_id" placeholder = "Manager Id" required>
 			<br><br>
 			<input type = "submit" name = "submit" id = "submit" value = "Add">
 			
@@ -222,6 +262,18 @@ background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
 		
 	}
 	
+	select{
+		height: 30px;
+		outline: none;
+		border-radius: 5px;
+	}
+	
+	select[option]{
+		height: 30px;
+		outline: none;
+		border-radius: 5px;
+	}
+	
 	input{
 		height: 30px;
 		outline: none;
@@ -231,6 +283,17 @@ background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
 	input:focus{
 			outline: none;
 			box-shadow: 0px 0px 10px skyblue;
+	}
+	
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+	
+	/* Firefox */
+	input[type=number] {
+	  -moz-appearance: textfield;
 	}
 	
 	#submit{

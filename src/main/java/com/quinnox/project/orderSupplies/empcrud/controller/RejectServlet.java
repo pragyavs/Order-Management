@@ -48,7 +48,17 @@ public class RejectServlet extends HttpServlet {
 		Order u=new Order( order_id, emp_id, mgr_id, prod_id, supplier_id, comments, status, rejctedBy, next_state);
 
 		int i=OrderDAO.rejectOrder(u);
-		response.sendRedirect("ViewOrderServlet");
+		
+		String message = "";
+		
+		if(i == 1) {
+			message = "Order Rejected";
+		}
+		else {
+			message = "Something went Wrong";
+		}
+		
+		response.sendRedirect("ViewOrderServlet?Id=" + supplier_id + "&message=" + message);
 	}
 
 	/**

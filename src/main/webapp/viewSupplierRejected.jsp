@@ -71,10 +71,10 @@ com.quinnox.project.orderSupplies.empcrud.dao.ProductDAO"%>
 			<tr>
 				<td>${u.getOrder_id()}</td>
 				<td>${u.getEmp_id() }</td>
-				<td>${plist[status.index].getName()}</td>
+				<td>${plist[status.index].getProd_name()}</td>
 				<td value = "${slist[status.index].getSupplierId()}">${slist[status.index].getName()}</td>
 				<td>${u.getComments()}</td>
-				<td><a href = "SupplierServlet?prod_id=${plist[status.index].getId()}&emp_id=${u.getEmp_id()}&status=wasRejected&order_id=${u.getOrder_id()}">Select supplier</a></td>
+				<td><a href = "SupplierServlet?prod_id=${plist[status.index].getProd_id()}&emp_id=${u.getEmp_id()}&status=wasRejected&order_id=${u.getOrder_id()}">Select supplier</a></td>
 			</tr>
 		</c:forEach>
 	</table>

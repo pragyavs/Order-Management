@@ -155,13 +155,13 @@ public class OrderDAO {
 	
 
 	
-	public static List<Order> getSupRejectedOrder(int mgr_id, String next_state){
+	public static List<Order> getSupRejectedOrder(int emp_id, int mgr_id, String next_state){
 		List<Order> olist=new ArrayList<Order>();
 		
 		try{
 			Connection con=ConnectionDAO.getConnection();
 			System.out.println("before executing query in order table");
-			PreparedStatement ps=con.prepareStatement("select * from orders where rejected_by = 'supplier' and mgr_id =" + mgr_id + " and next_state='rejected'");
+			PreparedStatement ps=con.prepareStatement("select * from orders where rejected_by = 'supplier' and mgr_id =" + emp_id + " or emp_id=" + emp_id + " and next_state='rejected'");
 			ResultSet rs=ps.executeQuery();
 						
 			while(rs.next()){
@@ -185,11 +185,11 @@ public class OrderDAO {
 			return olist;
 	}
 	
-	public static List<Order>getAllRecords(){
+	public static List<Order>getAllRecords(int sup_id){
 		List<Order> list=new ArrayList<Order>();
 		try{
 			Connection con=ConnectionDAO.getConnection();
-			PreparedStatement ps=con.prepareStatement("select * from orders where next_state='supplier'AND rejected_by!='Supplier'");
+			PreparedStatement ps=con.prepareStatement("select * from orders where next_state='supplier' and supplier_id =" + sup_id);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()){
 				Order u=new Order();

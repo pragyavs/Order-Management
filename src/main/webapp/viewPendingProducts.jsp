@@ -75,11 +75,11 @@
 		<c:forEach items="${olist}" var="u" varStatus = "status">
 			<tr>
 				<td>${u.getEmp_id()}</td>
-				<td value = "${plist[status.index].getName()}">${plist[status.index].getName()}</td>
+				<td value = "${plist[status.index].getProd_name()}">${plist[status.index].getProd_name()}</td>
 				<td value = "${slist[status.index].getSupplierId()}">${slist[status.index].getName()}</td>
 				<td><a href = "OrderServlet?OrderId=${u.getOrder_id() }&mgr_id=${u.getMgr_id()}&next_state=mgr">Approve</a></td>
 				
-				<td><a href = "rejectForm.jsp?order_id=${u.getOrder_id() }&emp_id=${u.getEmp_id()}&prod_id=${plist[status.index].getId()}&sup_id=${slist[status.index].getSupplierId()}&rej_by=mgr">Reject</a></td>
+				<td><a href = "rejectForm.jsp?order_id=${u.getOrder_id() }&emp_id=${u.getEmp_id()}&prod_id=${plist[status.index].getProd_id()}&sup_id=${slist[status.index].getSupplierId()}&rej_by=mgr">Reject</a></td>
 			</tr>
 		</c:forEach>
 	</table>

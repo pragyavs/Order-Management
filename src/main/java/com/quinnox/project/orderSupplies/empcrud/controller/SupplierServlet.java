@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.quinnox.project.orderSupplies.empcrud.dao.ProductDAO;
 import com.quinnox.project.orderSupplies.empcrud.dao.SupplierDAO;
 import com.quinnox.project.orderSupplies.empcrud.model.Supplier;
 
@@ -42,18 +43,21 @@ public class SupplierServlet extends HttpServlet {
 		}
 		String status = "";
 		status = request.getParameter("status");
-		System.out.println("status and emp_id in supplier servlet is: " + status + " " + emp_id);
+		
+		int sup_id = ProductDAO.getSupplierId(prod_id);
+		System.out.println("status and emp_id in supplier servlet is: " + status + " " + emp_id + " sup_id is: " + sup_id);
 		//System.out.println(prod_id);
 		
-		List<Supplier> slist = SupplierDAO.getSuppliers(prod_id);
+		List<Supplier> slist = SupplierDAO.getSuppliers(sup_id);
 		if(status != null) {
 			System.out.println("inside if block in supplier servlet");
 			request.setAttribute("wasRejected", status);
 			request.setAttribute("order_id", order_id);
 		}
 		request.setAttribute("slist", slist);
-		request.setAttribute("prod_id", prod_id);
+		request.setAttribute("sup_id", sup_id);
 		request.setAttribute("emp_id", emp_id);
+		request.setAttribute("prod_id", prod_id);
 		RequestDispatcher rd = request.getRequestDispatcher("viewSuppliers.jsp");
 		rd.forward(request, response);
 	}

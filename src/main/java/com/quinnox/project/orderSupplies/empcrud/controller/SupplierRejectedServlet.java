@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.quinnox.project.orderSupplies.empcrud.dao.EmployeeDAO;
 import com.quinnox.project.orderSupplies.empcrud.dao.OrderDAO;
 import com.quinnox.project.orderSupplies.empcrud.dao.ProductDAO;
 import com.quinnox.project.orderSupplies.empcrud.dao.SupplierDAO;
@@ -39,9 +40,10 @@ public class SupplierRejectedServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("inside sup rej survlet");
-		int mgr_id = Integer.parseInt(request.getParameter("mgr_id"));
+		int emp_id = Integer.parseInt(request.getParameter("emp_id"));
+		int mgr_id = EmployeeDAO.getMgrId(emp_id);
 		System.out.println("manager id in supplierRejectedServlet is:  " + mgr_id);
-		List<Order> olist = OrderDAO.getSupRejectedOrder(mgr_id, "rejected");
+		List<Order> olist = OrderDAO.getSupRejectedOrder(emp_id, mgr_id, "rejected");
 		List<Product> plist = new ArrayList<Product>();
 		List<Supplier> slist = new ArrayList<Supplier>();
 		//for(int )

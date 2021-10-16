@@ -36,6 +36,7 @@
 		background-color: #059862;
 		cursor: pointer;
 	}
+	
 </style>
 
 </head>
@@ -44,7 +45,9 @@
 	<form action = "${pageContext.request.contextPath}/SupplierServlet?emp_id=${emp_id }" method = "post">
 		<select name = "prod_id">
 			<c:forEach items="${plist}" var="u">
-				<option value = "${u.getId()}">${u.getName()}</option>
+				<option value = "${u.getProd_id()}">
+					${u.getSup_id()} ${u.getProd_name()} ${u.getPrice()} ${u.getDescription()}
+				</option>
 			</c:forEach>
 		</select>
 		

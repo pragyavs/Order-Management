@@ -7,6 +7,6 @@
 <title>Add Product</title>
 </head>
 <body>
-<jsp:include page="product.html"></jsp:include>
+<jsp:include page="product.html?sup_id=${sup_id }&message=${message }"></jsp:include>
 </body>
 </html>

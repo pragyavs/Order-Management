@@ -3,20 +3,17 @@ package com.quinnox.project.orderSupplies.empcrud.model;
 public class Supplier {
 	private int supplierId;
 	String name, email, password;
-	int productId, quantity;
 	
 	public Supplier() {
 
 	}
 
-	public Supplier(int supplierId, String name, String email, String password, int productId, int quantity) {
+	public Supplier(int supplierId, String name, String email, String password) {
 		super();
 		this.supplierId = supplierId;
 		this.name = name;
 		this.email = email;
 		this.password = password;
-		this.productId = productId;
-		this.quantity = quantity;
 	}
 
 	public int getSupplierId() {
@@ -49,22 +46,6 @@ public class Supplier {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public int getProductId() {
-		return productId;
-	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 	
 }

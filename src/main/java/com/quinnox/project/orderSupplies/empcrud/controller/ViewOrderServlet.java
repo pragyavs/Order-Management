@@ -34,9 +34,13 @@ public class ViewOrderServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-		List<Order> ulist=OrderDAO.getAllRecords(); // call methods in DAO layer
+		String message = request.getParameter("message");
+		int sup_id = Integer.parseInt(request.getParameter("Id"));
+		
+		System.out.println("message in vieworderservlet is: " + message);
+		List<Order> ulist=OrderDAO.getAllRecords(sup_id); // call methods in DAO layer
 		request.setAttribute("elist", ulist);
+		request.setAttribute("message", message);
 		System.out.println("size of ulist is: " + ulist.size());
 		RequestDispatcher rd=request.getRequestDispatcher("vieworder.jsp");
 		rd.forward(request, response);
