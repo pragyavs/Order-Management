@@ -9,104 +9,61 @@
 <title>Insert title here</title>
 
 <style>
-body{
-background-image: url('images/6.png');
-background-size: 100% 100%;
-background-position:50% 10%;
-background-repeat: no-repeat;
-animation: breath 30s linear infinite;
-}
-@keyframes breath {
-0% { background-size: 150% auto; }
-45% { background-size: 110% auto; }
-55% { background-size: 110% auto; }
-100% { background-size: 150% auto; }
-}
-b{
-color: white;
-}
-.button{
-border: 2px solid white;
-width: 300px;
-height:40px;
-border-radius: 10px;
-font-size: 25px;
-margin-top: 10px;
-}
-.button:hover{
-background-color:rgba(255,255,255,0.7);
-color: black;
-box-shadow: 1px 1px 1px 1px white;
-}
-.back-button{
-width: 60px;
-height: 60px;
-border-radius: 60%;
-background: rgba(0,0,0,0.7);
-color: white;
-font-size: 30px;
-}
-
-
-
-.back-button:hover{
-background-color:rgba(255,255,255,0.7);
-color: black;
-box-shadow: 1px 1px 1px 1px white;
-}
-.main{
-background: rgba(0,0,0,0.7);
-border-radius: 30px;
-position: absolute;
-left: 25%;
-width: 650px;
-height: 80px;
-color: white;
-margin-top: 80px;
-align-content: center;
-font-size: 50px;
-padding-top: 20px;
-padding-left: 40px;
-}
-.main_input{
-background: rgba(0,0,0,0.8);
-border-radius: 30px;
-position: absolute;
-left: 25%;
-width: 650px;
-height: 250px;
-margin-top: 200px;
-padding: 20px;
-font-size: 25px;
-}
-.main_input:hover{
-box-shadow: 1px 1px 1px 1px white;
-}
-select{
-font-size: 20px;
-width: 256px;
-height: 30px;
-border: none;
-outline:none;
-background: none;
-border-bottom: 3px solid white;
-color:white;
-border-radius: 20px;
-background-color: rgba(0,0,0,0.7);
-}
-input{
-font-size: 20px;
-width: 250px;
-height: 25px;
-outline:none;
-background:none;
-border: none;
-outline:none;
-border-bottom: 3px solid white;
-color: white;
-border-radius: 10px;
-background-color: rgba(0,0,0,0.7);
-}
+	form{
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 40px 20px;
+		/*box-shadow: 12px 12px 16px 0 rgba(255, 255, 255, 1), -8px -8px 12px 0 rgba(0, 0, 0, 1);
+		background: linear-gradient(135deg, rgba(0,0,0,1), rgba(255,255,255,0.25));*/
+	}
+	
+	label{
+		color: white;
+	}
+	
+	input {
+		border: 0;
+		outline: 0;
+		font-family: "Times New Roman", Times, serif;
+		font-size: 16px;
+		border-radius: 320px;
+		padding: 16px;
+		background-color: rgba(0, 0, 0, 0.1);
+		color: white;
+		margin-right: 8px;
+		box-shadow:  inset 2px 2px 5px black, inset -5px -5px 10px #FFF;
+		width: 100%;
+		box-sizing: border-box;
+		transition: all 0.2s ease-in-out;
+		appearance: none;
+		-webkit-appearance: none;
+	}
+	
+	input:focus {
+		box-shadow:  inset 1px 1px 2px black, inset -1px -1px 2px #FFF;
+	}
+	
+	#submit {
+		color:white;
+		width: 30%;
+		float: right;
+		font-weight: bold;
+		box-shadow: -5px -5px 20px black,  5px 5px 20px white;
+		transition: all 0.2s ease-in-out;
+		cursor: pointer;
+		font-weight: 600;
+	}
+  
+	#submit:hover {
+		box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+	}
+	
+	div{
+		height: 50px;
+		width: 50px;
+	}
+	
 </style>
 
 </head>
@@ -117,48 +74,32 @@ background-color: rgba(0,0,0,0.7);
 	Employee u = EmployeeDAO.getRecordById(Integer.parseInt(id));
 
 	%>
-	
-	<h1>Edit Employee Details</h1>
-	
-	<form action="UpdateServlet" method="post">
+		
+	<form id = "editForm" action="UpdateServlet" method="post">
 	
 		<input type="hidden" name="emp_id" value="<%=u.getId()%>" />
-		<table>
-			<tr>
-				<td>First Name:</td>
-				<td><input type="text" name="f_name" value="<%=u.getF_name()%>" /></td>
-			</tr>
+		
+		<label for = "fname">First Name:</label><br><br>
+		<input type="text" id = "fname" name="f_name" value="<%=u.getF_name()%>" /><br><br><br>
+		
+		<label for = "lname">Last Name:</label><br><br>
+		<input type="text" id = "lname" name="l_name" value="<%=u.getL_name()%>" /><br><br><br>
 			
-			<tr>
-				<td>Last Name:</td>
-				<td><input type="text" name="l_name" value="<%=u.getL_name()%>" /></td>
-			</tr>
+		<label for = "desig">Designation:</label><br><br>
+		<input type="text" id = "desig" name="desig" value="<%=u.getDesig()%>" /><br><br><br>
 			
-			<tr>
-				<td>Designation:</td>
-				<td><input type="text" name="desig" value="<%=u.getDesig()%>" /></td>
-			</tr>
+		<label for = "email">Email:</label><br><br>
+		<input type="email" name="emailid" value="<%=u.getEmail()%>" /><br><br><br>
 			
-			<tr>
-				<td>Email:</td>
-				<td><input type="text" name="emailid" value="<%=u.getEmail()%>" /></td>
-			</tr>
+		<label for = "pass">Password:</label><br><br>
+		<input type="text" id = "pass" name="password" value="<%=u.getPassword()%>" /><br><br><br>
 			
-			<tr>
-				<td>Password:</td>
-				<td><input type="password" name="password" value="<%=u.getPassword()%>" /></td>
-			</tr>
+		<label for = "mgr_id">Manager Id:</label><br><br>
+		<input type="text" id = "mgr_id" name="mgr_id" value="<%=u.getMgr_id()%>" /><br><br><br>
 			
-			<tr>
-				<td>Manager Id:</td>
-				<td><input type="password" name="mgr_id" value="<%=u.getMgr_id()%>" /></td>
-			</tr>
-			
-			<tr>
-				<td colspan="2"><input type="submit" value="Edit User" /></td>
-			</tr>
-		</table>
+		<input id = "submit" type="submit" value="Edit User" />
 		
 	</form>
+	<div></div>
 </body>
 </html>
