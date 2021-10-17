@@ -1,30 +1,27 @@
 package com.quinnox.project.orderSupplies.empcrud.controller;
 
 import java.io.IOException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.quinnox.project.orderSupplies.empcrud.dao.EmployeeDAO;
-import com.quinnox.project.orderSupplies.empcrud.model.Employee;
-
+import com.quinnox.project.orderSupplies.empcrud.dao.SupplierDAO;
+import com.quinnox.project.orderSupplies.empcrud.model.Supplier;
 
 /**
- * Servlet implementation class ViewServlet
+ * Servlet implementation class UpdateSupplierServlet
  */
-@WebServlet("/ViewServlet")
-public class ViewServlet extends HttpServlet {
+@WebServlet("/UpdateSupplierServlet")
+public class UpdateSupplierServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewServlet() {
+    public UpdateSupplierServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,17 +31,24 @@ public class ViewServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String message = request.getParameter("message");
+		int sup_id=Integer.parseInt(request.getParameter("sup_id"));
+		String name=request.getParameter("name");
+		String emailid=request.getParameter("emailid");
+		String password=request.getParameter("password");
+
+		//Invoke User Parameterized constructor & initialise values
+		Supplier s = new Supplier(sup_id, name, emailid, password);
+		int status = SupplierDAO.updateSupplier(s);
 		
-		List<Employee> ulist = EmployeeDAO.getAllRecords(); // call methods in DAO layer
-		request.setAttribute("elist", ulist);
-		RequestDispatcher rd;
-		if(message != "null") {
-			request.setAttribute("message", message);
+		String message = "";
+		if(status == 1) {
+			message = "Successfully Updated";
+		}
+		else {
+			message = "Error Occured while Updating";
 		}
 		
-		rd = request.getRequestDispatcher("viewUsers.jsp");
-		rd.forward(request, response);
+		response.sendRedirect("SupplierListServlet?message=" + message);
 	}
 
 	/**

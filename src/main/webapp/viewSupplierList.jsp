@@ -58,7 +58,7 @@
 </head>
 <body>
 
-	<h1 align="center">Employee Details</h1>
+	<h1 align="center">Supplier Details</h1>
 	
 	<p style = "color: white;">${message }</p>
 	
@@ -66,27 +66,21 @@
 		<tr >
 	
 			<th>Id</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Designation</th>
+			<th>Name</th>
 			<th>Email</th>
 			<th>Password</th>
-			<th>Manager Id</th>
 			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
 
-		<c:forEach items="${elist}" var="u">
+		<c:forEach items="${slist}" var="u">
 			<tr >
-				<td>${u.getId()}</td>
-				<td>${u.getF_name()}</td>
-				<td>${u.getL_name()}</td>
-				<td>${u.getDesig()}</td>
+				<td>${u.getSupplierId()}</td>
+				<td>${u.getName()}</td>
 				<td>${u.getEmail()}</td>
 				<td>${u.getPassword()}</td>
-				<td>${u.getMgr_id()}</td>
-				<td><a href="editform.jsp?id=${u.getId()}">Edit</a></td>
-				<td><a href="deleteUser.jsp?id=${u.getId()}">Delete</a></td>
+				<td><a href="editSupplierForm.jsp?id=${u.getSupplierId()}">Edit</a></td>
+				<td><a href="deleteSupplier.jsp?id=${u.getSupplierId()}">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>

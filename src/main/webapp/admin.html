@@ -41,10 +41,16 @@
 			var e = url.searchParams.get("message");
 			document.getElementById("message").innerHTML = e;
 			document.getElementById('orderFrame').src = 'ViewServlet';
+			document.getElementById('supplierFrame').src = 'SupplierListServlet';
 		}
 		
 		function displayUsers(){
 			document.getElementById("viewUsers").style.display="block";
+			document.getElementById('frameContainer').style.display = "block";
+		}
+		
+		function displaySuppliers(){
+			document.getElementById("viewSuppliers").style.display="block";
 			document.getElementById('frameContainer').style.display = "block";
 		}
     
@@ -66,6 +72,10 @@
 		<div class="admin_btn">
 			<button class="animate__animated animate__bounceIn" onclick = "displayUsers()">View User</button> <!-- <b> <a href="ViewServlet" style="color:white;"> -->
 		</div>
+		
+		<div class="admin_btn">
+			<button class="animate__animated animate__bounceIn" onclick = "displaySuppliers()">View Supplier</button> <!-- <b> <a href="ViewServlet" style="color:white;"> -->
+		</div>
 	</div>
 
 
@@ -74,6 +84,12 @@
 			<span class = "close" onclick="document.getElementById('viewUsers').style.display = 'none'; document.getElementById('frameContainer').style.display = 'none'; document.getElementById('orderFrame').src = 'ViewServlet'">&times;</span>
 			
 			<iframe id = "orderFrame" class = "managerFrame" src = "" frameborder = "0"></iframe>
+		</div>
+		
+		<div id = "viewSuppliers" class = "managerForms wideContainer">
+			<span class = "close" onclick="document.getElementById('viewSuppliers').style.display = 'none'; document.getElementById('frameContainer').style.display = 'none'; document.getElementById('supplierFrame').src = 'SupplierListServlet'">&times;</span>
+			
+			<iframe id = "supplierFrame" class = "managerFrame" src = "" frameborder = "0"></iframe>
 		</div>
 	</div>
 	
@@ -287,7 +303,7 @@
 	}
 	
 	.admin_btn{
-			width: 49%;
+			width: 33%;
 			height: 200px;
 			text-align: center;
 		}

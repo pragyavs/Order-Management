@@ -32,17 +32,43 @@ public class SupplierDAO {
 		return slist;
 	}
 	
+	public static List<Supplier> getAllSupplierDetails(){
+		List<Supplier> slist=new ArrayList<Supplier>();
+		
+		try{
+			Connection con=ConnectionDAO.getConnection();
+			PreparedStatement ps=con.prepareStatement("select * from suppliers");
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()){
+				Supplier s = new Supplier();
+				s.setName(rs.getString("sup_name"));
+				s.setSupplierId(rs.getInt("sup_id"));
+				s.setEmail(rs.getString("email"));
+				s.setPassword(rs.getString("password"));
+
+				slist.add(s);
+			}
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+		return slist;
+	}
+	
 	public static Supplier getSupplier(int sup_id) {
 		Supplier s = new Supplier();
 		
 		try{
 			Connection con=ConnectionDAO.getConnection();
-			PreparedStatement ps=con.prepareStatement("select sup_id, sup_name from suppliers where sup_id=" + sup_id);
+			PreparedStatement ps=con.prepareStatement("select * from suppliers where sup_id=" + sup_id);
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()){
 				s.setName(rs.getString("sup_name"));
 				s.setSupplierId(rs.getInt("sup_id"));
+				s.setEmail(rs.getString("email"));
+				s.setPassword(rs.getString("password"));
 			}
 		}
 		catch(Exception e){
@@ -74,6 +100,44 @@ public class SupplierDAO {
             status = ps.executeUpdate();
 		}
 		
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		
+		return status;
+	}
+	
+	public static int updateSupplier(Supplier s) {
+		int status = 0;
+		
+		try {
+			Connection con=ConnectionDAO.getConnection();
+			PreparedStatement ps = con.prepareStatement("update suppliers set sup_name=?, email=?, password=? where sup_id=?");
+			
+			ps.setString(1, s.getName());
+			ps.setString(2, s.getEmail());
+			ps.setString(3, s.getPassword());
+			ps.setInt(4, s.getSupplierId());
+			
+			status = ps.executeUpdate();
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		
+		return status;
+	}
+	
+	public static int deleteSupplier(int sup_id) {
+		int status = 0;
+		
+		try {
+			Connection con=ConnectionDAO.getConnection();
+			System.out.println("Connection successfull sup_id: " + sup_id);
+			PreparedStatement ps = con.prepareStatement("delete from suppliers where sup_id=" + sup_id);
+			
+			status = ps.executeUpdate();
+		}
 		catch(Exception ex) {
 			ex.printStackTrace();
 		}
