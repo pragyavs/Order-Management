@@ -46,6 +46,11 @@
       position: sticky;
       top: 0;
     }
+    
+    div{
+    	width: 50px;
+    	height: 200px;
+    }
 	
 </style>
 
@@ -75,5 +80,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+	
+	<div></div>
 </body>
 </html>
