@@ -36,11 +36,12 @@ margin-top: 0%;
 margin-left: 0%;
 padding-top:0px;
 color: white;
-background-image: url('images/supplier.png');
+background-image: url('images/supplierbg.jpg');
 background-position:40% 9%;
 height: 100%;
 background-size:cover;
 animation: breath_af 40s linear 1;
+text-align: center;
 }
 
 @keyframes breath_af {
@@ -80,10 +81,13 @@ hr {
 	font-size: 35px;
 }
 
-h1 {
-	font-size: 45px;
-	padding-left: 30px;
-}
+h1{
+			font-weight: bold;
+			color: white;
+			text-shadow: 2px 2px 4px #000000;
+			font-size: 80px;
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+		}
 
 button {
 	margin-top: 10px;
@@ -97,6 +101,8 @@ button {
 	background: linear-gradient(135deg, rgba(0, 0, 0, 1),
 		rgba(255, 255, 255, 0.25));
 	font-family: "Times New Roman", Times, serif;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 button:hover {
@@ -113,11 +119,17 @@ b {
 .buttons {
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;
+	margin-top: 100px;
 	display: flex;
 	width: 80%;
 	height: 200px;
 }
+
+.sup_btn{
+			width: 49%;
+			height: 200px;
+			text-align: center;
+		}
 
 .supplierForms{
 			display: none;
@@ -211,24 +223,18 @@ function closeViewOrder(){
 <body onload = myfunction()>
 	
 	<button id = "logOut" style = "width: 120px; height: 50px;" onclick = "window.location.href='loginPage.html'">Log Out</button>
-	
-	<div class="color-gradient">
-		<center>
-			<h1 class="second-head1 animate__animated animate__zoomIn">Welcome
-				Supplier</h1>
-		</center>
-	</div>
+	<br><br>
+	<h1>Welcome Supplier</h1>
 
 	<div class="buttons ">
-		<div class="add_button">
+		<div class="sup_btn">
 			<button onclick="displayOrders()" class="animate__animated animate__bounceIn">View Orders</button>
 		</div>
-		<hr class="animate__bounceInRight">
-		<div class="view_button">
+
+		<div class="sup_btn">
 			<button onclick="displayAddProduct()" class="animate__animated animate__bounceIn">Add Product</button>
 		</div>
 	</div>
-	</center>
 	
 	<div id = "frameContainer">
 		<div id = "viewOrder" class = "supplierForms wideContainer">

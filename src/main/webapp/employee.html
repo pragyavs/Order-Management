@@ -2,25 +2,25 @@
 <html lang="en">
 
 <head>
-    <title>Employee Order Placing</title>
+    <title>Employee</title>
     <style>
     
     	#logOut{
-		float: right;
-		margin-right: 10px;
-		margin-top: 10px;
-		padding: 10px 20px;
-		background-color: #000;
-		border: none;
-		color: white;
-		border-radius: 5px;
-	}
-
-	#logOut:hover{
-		cursor: pointer;
-		background-color: #434343;
-	}
-    
+			float: right;
+			margin-right: 10px;
+			margin-top: 10px;
+			padding: 10px 20px;
+			background-color: #000;
+			border: none;
+			color: white;
+			border-radius: 5px;
+		}
+	
+		#logOut:hover{
+			cursor: pointer;
+			background-color: #434343;
+		}
+	    
 		.color-gradient{
 			background: linear-gradient(to bottom,rgba(0,0,0,1.0) 15%,rgba(0,0,0,1.0) 20%,rgba(0,0,0,0.95) 30%,rgba(0,0,0,0.90) 40% , rgba(0,0,0,0.85) 45%,rgba(0,0,0,0.8) 50%,rgba(0,0,0,0.75) 55%,rgba(0,0,0,0.7) 60%,rgba(0,0,0,0.65) 65%,rgba(0,0,0,0.6) 70%,rgba(0,0,0,0.55) 75%,rgba(0,0,0,0.5) 80%,rgba(0,0,0,0.4) 85%,rgba(0,0,0,0.2) 90%,rgba(0,0,0,0.1) 95%,rgba(0,0,0,0.0) 100%);
 			width: 100%;
@@ -36,11 +36,12 @@
 			margin-left: 0%;
 			padding-top:0px;
 			color: white;
-			background-image: url('images/10.png');
+			background-image: url('images/empbg.jpg');
 			background-position:40% 9%;
 			height: 100%;
 			background-size:cover;
 			animation: breath_af 40s linear 1;
+			text-align: center;
 		}
 		
 		@keyframes breath_af {
@@ -54,11 +55,6 @@
 			0% { background-size: 220% auto; }
 			50% { background-size:160% auto; }
 			100% { background-size: 100% auto; }
-		}
-		
-		.animate__bounceIn{
-			animation-delay: 1s;
-			--animate-duration:2s;
 		}
 		
 		.emp_type{
@@ -83,8 +79,11 @@
 		}
 		
 		h1{
-			font-size: 45px;
-			padding-left: 30px;
+			font-weight: bold;
+			color: white;
+			text-shadow: 2px 2px 4px #000000;
+			font-size: 80px;
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 		}
 		
 		button{
@@ -98,6 +97,7 @@
 			background: linear-gradient(135deg, rgba(0,0,0,1), rgba(255,255,255,0.25));
 			font-family: "Times New Roman", Times, serif;
 			font-size: 20px;
+			font-weight: bold;
 		}
 		
 		button:hover{
@@ -113,10 +113,16 @@
 		.buttons{
 			margin-left: auto;
 			margin-right: auto;
-			margin-top: 50px;
+			margin-top: 100px;
 			display: flex;
 			width: 80%;
 			height: 200px;
+		}
+		
+		.emp_btn{
+			width: 49%;
+			height: 200px;
+			text-align: center;
 		}
 		
 		.managerForms{
@@ -200,23 +206,16 @@
 <body onload = myfunction()>
 
 	<button id = "logOut" style = "width: 120px; height: 50px;" onclick = "window.location.href='loginPage.html'">Log Out</button>
-	
-    <div class="color-gradient">
-		<h1 class="animate__animated animate__zoomInDown">What good is an idea if it remains an idea? </h1>
-		<h1 class="second-head1 animate__animated animate__zoomIn">Try. Experiment. Iterate. Fail. Try again. Change the world.</h1>
-		<h2 class="animate__animated animate__bounceIn">Welcome Employee</h2>
-	</div>
-	
-	<hr class="first-hr animate__shakeY">
+	<br><br>
+	<h1>Welcome Employee</h2>
 
 	<div class="buttons ">
-		<div class="add_button">
+		<div class="emp_btn">
 			<button onclick="displayPlaceOrder()" class="animate__animated animate__bounceIn">Place Order</button>
 		</div>
 		
-		<hr class="animate__bounceInRight">
 		
-		<div class="view_button">
+		<div class="emp_btn">
 			<button onclick = "displayOrderStatus()" class="animate__animated animate__bounceIn">Order Status</button>
 		</div>
 	</div>

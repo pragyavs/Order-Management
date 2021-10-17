@@ -52,25 +52,18 @@
     
 </head>
 <body onload = "myFunction()">
-	<div class="color-gradient">
 	<button id = "logOut" style = "width: 120px; height: 50px;" onclick = "window.location.href='loginPage.html'">Log Out</button>
 	<br><br>
 	<h1>Welcome Admin</h2>
-	
-	</div>
-	
+		
 	<p id = "message" style = "color: white;"></p>
-	
-	<hr class="first-hr animate__shakeY">
-	
+		
 	<div class="buttons ">
-		<div class="add_button">
-			<button onclick="document.getElementById('addUserForm').style.display = 'block'" class="animate__animated animate__bounceIn"><b>Add User</a></b></button>
+		<div class="admin_btn">
+			<button onclick="document.getElementById('addUserForm').style.display = 'block'" class="animate__animated animate__bounceIn">Add User</a></button>
 		</div>
-		
-		<hr class="animate__bounceInRight">
-		
-		<div class="view_button">
+				
+		<div class="admin_btn">
 			<button class="animate__animated animate__bounceIn" onclick = "displayUsers()">View User</button> <!-- <b> <a href="ViewServlet" style="color:white;"> -->
 		</div>
 	</div>
@@ -264,11 +257,6 @@
 		font-size: 35px;
 	}
 	
-	h1{
-		font-size: 45px;
-		padding-left: 30px;
-	}
-	
 	button{
 		margin-top: 10px;
 		width:150px;
@@ -289,18 +277,20 @@
 		cursor: pointer;
 	}
 	
-	b{
-		font-size: 25px;
-	}
-	
 	.buttons{
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: 50px;
+		margin-top: 100px;
 		display: flex;
 		width: 80%;
 		height: 200px;
 	}
+	
+	.admin_btn{
+			width: 49%;
+			height: 200px;
+			text-align: center;
+		}
 	
 	#addUserForm{
 		display: none;
